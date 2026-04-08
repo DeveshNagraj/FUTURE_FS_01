@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devesh Nagraj | Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#020617,#0f172a);
+    color:white;
+}
+
+/* HEADER */
+header{
+    padding:20px;
+    text-align:center;
+}
+
+nav a{
+    margin:10px;
+    text-decoration:none;
+    color:#38bdf8;
+}
+
+/* HERO */
+.hero{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.hero h1{
+    font-size:40px;
+}
+
+.typing{
+    color:#38bdf8;
+    font-weight:bold;
+}
+
+/* SECTIONS */
+section{
+    padding:40px 20px;
+}
+
+h2{
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+/* GLASS CARD */
+.card{
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    padding:20px;
+    margin:15px 0;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform: translateY(-10px);
+    background: rgba(56,189,248,0.1);
+}
+
+/* GRID */
+.projects{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+/* CONTACT */
+input,textarea{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:none;
+    border-radius:5px;
+}
+
+button{
+    padding:10px;
+    background:#38bdf8;
+    border:none;
+    cursor:pointer;
+}
+
+/* ANIMATION */
+.fade{
+    opacity:0;
+    transform:translateY(30px);
+    transition:1s;
+}
+
+.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h2>Devesh Nagraj</h2>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1>Hello, I'm Devesh 👋</h1>
+    <p class="typing"></p>
+</div>
+
+<section id="about" class="fade">
+    <h2>About Me</h2>
+    <div class="card">
+        <p>
+        I am an enthusiastic Computer Science student with a strong interest in backend development and building scalable real-world applications.
+        I have hands-on experience with technologies like Java, Python, MySQL, MongoDB, and modern web development frameworks.
+        </p>
+
+        <p>
+        Currently working as a Full Stack Intern, I enjoy solving complex problems, designing efficient systems, and continuously learning new technologies.
+        I have also worked on AI-based systems, cloud applications, and blockchain projects, which helped me gain practical development experience.
+        </p>
+
+        <p>
+        My goal is to become a skilled backend developer and contribute to impactful projects while growing in a challenging and innovative environment.
+        </p>
+    </div>
+</section>
+
+<section id="education" class="fade">
+    <h2>Education</h2>
+
+    <div class="card">
+        <h3>B.Tech - Computer Science & Engineering</h3>
+        <p>Samrat Ashok Technological Institute, Vidisha</p>
+        <p>2024 - 2027</p>
+    </div>
+
+    <div class="card">
+        <h3>Diploma - Computer Science Engineering</h3>
+        <p>Shahid Jageshwar Nagar Govt Polytechnic College, Dewas</p>
+        <p>2021 - 2024</p>
+    </div>
+
+    <div class="card">
+        <h3>High School</h3>
+        <p>Kendriya Vidyalaya BNP Dewas</p>
+        <p>2021</p>
+    </div>
+
+</section>
+
+<section id="skills" class="fade">
+    <h2>Skills</h2>
+    <div class="card">
+        <p><b>Languages:</b> Java, Python</p>
+        <p><b>Web:</b> HTML, CSS, JavaScript, React, Node.js</p>
+        <p><b>Database:</b> MySQL, MongoDB</p>
+        <p><b>Tools:</b> GitHub, VS Code, XAMPP</p>
+        <p><b>Core:</b> Data Structures & Algorithms, REST APIs</p>
+    </div>
+</section>
+
+<section id="projects" class="fade">
+    <h2>Projects</h2>
+
+    <div class="projects">
+
+        <div class="card">
+            <h3>Call Genie AI</h3>
+            <p>AI calling agent without internet using speech processing.</p>
+        </div>
+
+        <div class="card">
+            <h3>CertifyChain</h3>
+            <p>Blockchain-based certificate verification platform.</p>
+        </div>
+
+        <div class="card">
+            <h3>Cloud File Monitoring System</h3>
+            <p>Secure cloud-based file upload system using AWS.</p>
+        </div>
+
+    </div>
+</section>
+
+<section id="contact" class="fade">
+    <h2>Contact</h2>
+    <div class="card">
+        <p>Email: deveshnagraj450@gmail.com</p>
+        <p>Phone: 8349338349</p>
+
+        <form id="form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</section>
+
+<script>
+
+/* Typing Effect */
+const text = ["Full Stack Developer", "Backend Developer", "Problem Solver"];
+let i=0,j=0,current="",isDeleting=false;
+
+function type(){
+    if(i<text.length){
+        if(!isDeleting && j<=text[i].length){
+            current = text[i].substring(0,j++);
+        } else if(isDeleting && j>=0){
+            current = text[i].substring(0,j--);
+        }
+
+        document.querySelector(".typing").textContent = current;
+
+        if(j==text[i].length) isDeleting=true;
+        if(j==0){ isDeleting=false; i++; }
+
+    } else i=0;
+
+    setTimeout(type,100);
+}
+type();
+
+/* Scroll Animation */
+const faders = document.querySelectorAll(".fade");
+
+window.addEventListener("scroll", ()=>{
+    faders.forEach(el=>{
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight-100){
+            el.classList.add("show");
+        }
+    });
+});
+
+/* Form */
+document.getElementById("form").addEventListener("submit", function(e){
+    e.preventDefault();
+    alert("Message Sent Successfully 🚀");
+});
+
+</script>
+
+</body>
+</html>
